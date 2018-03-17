@@ -14,6 +14,11 @@ public class AStarObject : MonoBehaviour {
 	    coll = gameObject.GetComponent<Collider>();
 	}
 
+    void Update()
+    {
+        //transform.eulerAngles = new Vector3(0, 0, transform.rotation.eulerAngles.z);
+    }
+
     private IEnumerator ScanTimer()
     {
         while (true)

@@ -161,10 +161,13 @@
      <Compile Include="Assets\AstarPathfindingProject\Utilities\RetainedGizmos.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Utilities\UnityReferenceHelper.cs" />
      <Compile Include="Assets\Scripts\AI\Ai.cs" />
+     <Compile Include="Assets\Scripts\AI\BeaverAi.cs" />
      <Compile Include="Assets\Scripts\AI\IKnockable.cs" />
      <Compile Include="Assets\Scripts\AI\ShipAi.cs" />
+     <Compile Include="Assets\Scripts\Beaverai.cs" />
      <Compile Include="Assets\Scripts\Controllers\AStarObject.cs" />
      <Compile Include="Assets\Scripts\CurrentImpulse.cs" />
+     <Compile Include="Assets\Scripts\Functions.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\Turret.cs" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.cginc" />
@@ -200,7 +203,7 @@
  <HintPath>C:/Program Files/Unity2017.1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>M:/Unity Projects/Better Game/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ <HintPath>M:/GitHub/DamGoodGame/Better Game/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

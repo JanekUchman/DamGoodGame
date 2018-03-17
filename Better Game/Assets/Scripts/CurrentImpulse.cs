@@ -28,16 +28,40 @@ public class CurrentImpulse : MonoBehaviour {
     void TriggerImpulse()
     {
         // Create circle collider that interacts with all objects near the impulse
-        Collider2D[] ImpulseCollisions = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), ImpulseRadius, ForceLayer, -Mathf.Infinity, Mathf.Infinity);
-        for(int i = 0; i < ImpulseCollisions.Length; i++)
+        Collider[] ImpulseCollisions = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, 0), ImpulseRadius, ForceLayer);
+        
+         for (int i = 0; i < ImpulseCollisions.Length; i++)
         {
+            //List<IKnockable> interfaceList;
+            //Functions.GetInterfaces<IKnockable>(out interfaceList, ImpulseCollisions[i].gameObject);
+            //foreach (var knockable in interfaceList)
+            //{
+            //    knockable.RippleHit();
+            //    Debug.Log("Ripple hit");
+
+
+            //}
+
+
+
+            MonoBehaviour[] list = ImpulseCollisions[i].gameObject.GetComponents<MonoBehaviour>();
+            foreach (MonoBehaviour mb in list)
+            {
+                if (mb is IKnockable)
+                {
+                    var knockable = (IKnockable)mb;
+                    knockable.RippleHit();
+                    Debug.Log("Ripple hit");
+                }
+            }
+
             // Disable any projectiles hit by the impulse
-            if(ImpulseCollisions[i].GetComponent<Projectile>())
+            if (ImpulseCollisions[i].GetComponent<Projectile>())
             {
                 ImpulseCollisions[i].GetComponent<Projectile>().DisableProjectile();
             }
             // Check if the object has a rigidbody attached to it - needs force applied to it
-            if(ImpulseCollisions[i].GetComponent<Rigidbody2D>())
+            if(ImpulseCollisions[i].GetComponent<Rigidbody>())
             {
                 // Direction that the force should be applied in = position of force - position of the object
                 Vector2 ForceVector = (ImpulseCollisions[i].transform.position - transform.position);
@@ -48,7 +72,7 @@ public class CurrentImpulse : MonoBehaviour {
                 // Multiply by the impulse force
                 ForceVector *= ImpulseForce;
                 // Set velocity of the object being effected by the current, to get "arcade" physics feel
-                ImpulseCollisions[i].GetComponent<Rigidbody2D>().velocity = ForceVector;
+                ImpulseCollisions[i].GetComponent<Rigidbody>().velocity = ForceVector;
             }
         }
     }

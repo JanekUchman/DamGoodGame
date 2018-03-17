@@ -5,15 +5,15 @@ using UnityEngine;
 public class ShipAi : Ai, IKnockable
 {
 
-    private State state;
-
+    private Rigidbody rigidBody;
 	// Use this for initialization
 	void Start () {
-		
+        rigidBody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log(rigidBody.velocity);
 	    switch (state)
 	    {
 	        case State.Moving:
@@ -28,14 +28,25 @@ public class ShipAi : Ai, IKnockable
         }
 	}
 
+
+    public void RippleHit()
+    {
+        StartCoroutine(RemoveForce());
+        state = State.Stunned;
+    }
+
+    private IEnumerator RemoveForce()
+    {
+        yield return new WaitForSeconds(Functions.HitTimer);
+
+        rigidBody.velocity = Vector3.zero;
+    }
+
     protected override void Moving()
     {
     }
 
-    public void RippleHit()
-    {
-        
-    }
+    
 
     public void Stunned()
     {

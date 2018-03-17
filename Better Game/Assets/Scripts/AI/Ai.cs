@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Ai : MonoBehaviour {
-
+    protected State state;
     protected enum State
     {
         Moving,
         Stunned,
         Attacking,
         UnderAttack
-    } 
-	
+    }
+
+
     protected abstract void Moving();
 
 }

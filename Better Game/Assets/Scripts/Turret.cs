@@ -48,53 +48,61 @@ public class Turret : MonoBehaviour {
     void DetectTarget()
     {
         // Create circle collider that finds all the objects within the radius
-        Collider2D[] DetectedColliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), DetectionDistance, DetectionLayer, -Mathf.Infinity, Mathf.Infinity);
+        Collider[] DetectedColliders = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z), DetectionDistance, DetectionLayer);
+
+        
         // Check if the collider has detected a ship that is nearby
-        Debug.Log(DetectedColliders.Length);
         if (DetectedColliders.Length > 0)
         {
+
             // Create variable to determine what ship is closest to the turret
             float closestDistance = Mathf.Infinity;
             for (int i = 0; i < DetectedColliders.Length; i++)
             {
-				// Determine the distance between the collider and the turret
-				float curDistance = Vector2.Distance(transform.position, DetectedColliders[i].transform.position);
-                // Check if the current collider is closer to the previous
-                if(curDistance < closestDistance)
+                if (DetectedColliders[i].GetComponent<ShipAi>())
                 {
-                    // Set this to be the closest distance
-                    closestDistance = curDistance;
-                    // Create vector that determines the new direction our object wants to be facing
-                    Vector2 lookDirection = (DetectedColliders[i].transform.position - transform.position).normalized;
-                    // Get the angle that we need to rotate to face the object
-                    float lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-                    // Convert that to quaternion for rotation
-                    Quaternion lookRotation = Quaternion.AngleAxis(lookAngle, transform.forward);
-                    // Rotate the object over time
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, Time.deltaTime * RotationRate);
-                    // Check if the object is facing the target
-                    float compAngle = Quaternion.Angle(transform.rotation, lookRotation);
-                    // Check that the absolute value between the target rotation 
-                    if(Mathf.Abs(compAngle) < MinFiringAngle)
+                    Debug.Log("Detection");
+
+                    // Determine the distance between the collider and the turret
+                    float curDistance = Vector3.Distance(transform.position, DetectedColliders[i].transform.position);
+                    // Check if the current collider is closer to the previous
+                    if (curDistance < closestDistance)
                     {
-                        // Increment firing timer
-                        fireTimer += Time.deltaTime;
-                        if(fireTimer > FiringRate)
+                        // Set this to be the closest distance
+                        closestDistance = curDistance;
+                        // Create vector that determines the new direction our object wants to be facing
+                        Vector3 lookDirection = (DetectedColliders[i].transform.position - transform.position).normalized;
+                        // Get the angle that we need to rotate to face the object
+                        float lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+                        // Convert that to quaternion for rotation
+                        Quaternion lookRotation = Quaternion.AngleAxis(lookAngle, transform.forward);
+                        // Rotate the object over time
+                        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, Time.deltaTime * RotationRate);
+                        transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
+                        // Check if the object is facing the target
+                        float compAngle = Quaternion.Angle(transform.rotation, lookRotation);
+                        // Check that the absolute value between the target rotation 
+                        if (Mathf.Abs(compAngle) < MinFiringAngle)
                         {
-                            // Fire projectile - if there are still projectiles we need to instantiate...
-                            if(InstantiatedProjectiles.Count < MaxInstantiatedProjectiles)
+                            // Increment firing timer
+                            fireTimer += Time.deltaTime;
+                            if (fireTimer > FiringRate)
                             {
-                                GameObject newProjectile = Instantiate(Projectile, ProjectileSpawn.position, ProjectileSpawn.rotation);
-                                newProjectile.GetComponent<Projectile>().EnableProjectile();
-                                // Add new projectile to the list of instantiated projectiles
-                                InstantiatedProjectiles.Add(newProjectile);
+                                // Fire projectile - if there are still projectiles we need to instantiate...
+                                if (InstantiatedProjectiles.Count < MaxInstantiatedProjectiles)
+                                {
+                                    GameObject newProjectile = Instantiate(Projectile, ProjectileSpawn.position, ProjectileSpawn.rotation);
+                                    newProjectile.GetComponent<Projectile>().EnableProjectile();
+                                    // Add new projectile to the list of instantiated projectiles
+                                    InstantiatedProjectiles.Add(newProjectile);
+                                }
+                                else
+                                {
+                                    ResetProjectile();
+                                }
+                                // Reset timer
+                                fireTimer = 0.0f;
                             }
-                            else
-                            {
-                                ResetProjectile();
-                            }
-                            // Reset timer
-                            fireTimer = 0.0f;
                         }
                     }
                 }

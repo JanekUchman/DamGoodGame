@@ -23,8 +23,10 @@ GameObject:
   - component: {fileID: 136950592005162774}
   - component: {fileID: 23096929873350154}
   - component: {fileID: 54284738377797794}
-  - component: {fileID: 114634446797898212}
-  - component: {fileID: 114681713808013216}
+  - component: {fileID: 114437046797416126}
+  - component: {fileID: 114546314353759948}
+  - component: {fileID: 114075477378784652}
+  - component: {fileID: 114193767296804350}
   m_Layer: 8
   m_Name: Ship
   m_TagString: Untagged
@@ -38,13 +40,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585974724508148}
-  m_LocalRotation: {x: -0.22267056, y: -0.22267056, z: 0.6711318, w: 0.6711318}
-  m_LocalPosition: {x: -7.24, y: 2.3, z: -0.1640625}
+  m_LocalRotation: {x: -0.2115127, y: -0.2115127, z: 0.6747314, w: 0.6747314}
+  m_LocalPosition: {x: -7.24, y: 2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -36.71, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: -34.81, z: 90}
 --- !u!23 &23096929873350154
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -97,9 +99,9 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 1
---- !u!114 &114634446797898212
+--- !u!114 &114075477378784652
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -125,7 +127,32 @@ MonoBehaviour:
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask: -1
---- !u!114 &114681713808013216
+--- !u!114 &114193767296804350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585974724508148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a066140aaf31fbe4e9156da93579d520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenScans: 0.1
+--- !u!114 &114437046797416126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585974724508148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
+--- !u!114 &114546314353759948
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -137,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  repathRate: 0.5
+  repathRate: 0.95
   canSearch: 1
   canMove: 1
   maxSpeed: 1
@@ -146,12 +173,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   centerOffset: 1
-  rotationIn2D: 0
+  rotationIn2D: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 12
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
