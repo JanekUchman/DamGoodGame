@@ -556,12 +556,17 @@ Prefab:
     - target: {fileID: 114219867075608908, guid: 84fde6ada704cf2469dd5bdf108bce5c,
         type: 2}
       propertyPath: ImpulseRadius
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114219867075608908, guid: 84fde6ada704cf2469dd5bdf108bce5c,
         type: 2}
       propertyPath: ImpulseForce
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114219867075608908, guid: 84fde6ada704cf2469dd5bdf108bce5c,
+        type: 2}
+      propertyPath: CooldownTime
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84fde6ada704cf2469dd5bdf108bce5c, type: 2}

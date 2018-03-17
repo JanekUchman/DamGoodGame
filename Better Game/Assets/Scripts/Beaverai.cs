@@ -13,6 +13,7 @@ public class Beaverai : Ai, IKnockable
 
     public void RippleHit()
     {
+        StopCoroutine(RemoveForce());
         StartCoroutine(RemoveForce());
         state = State.Stunned;
     }
@@ -20,7 +21,6 @@ public class Beaverai : Ai, IKnockable
     private IEnumerator RemoveForce()
     {
         yield return new WaitForSeconds(Functions.HitTimer);
-
         rigidBody.velocity = Vector3.zero;
     }
 

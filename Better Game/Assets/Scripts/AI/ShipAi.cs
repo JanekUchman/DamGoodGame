@@ -13,7 +13,6 @@ public class ShipAi : Ai, IKnockable
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(rigidBody.velocity);
 	    switch (state)
 	    {
 	        case State.Moving:
