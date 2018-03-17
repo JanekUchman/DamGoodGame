@@ -6,22 +6,35 @@ public class CurrentImpulse : MonoBehaviour {
 
     public float ImpulseRadius = 10.0f;
     public float ImpulseForce = 10.0f;
+    public float ResetTime = 3.0f;
     public LayerMask ForceLayer;
+    private bool onCooldown = false;
+    public float CooldownTime = 2.0f;
 
 	// Use this for initialization
 	void Start () {
-
+        onCooldown = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !onCooldown)
         {
             // Update position
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             // Apply new impulse
             TriggerImpulse();
+            StartCoroutine(SetCooldown());
         }
+    }
+
+    IEnumerator SetCooldown()
+    {
+        onCooldown = true;
+        // Wait for cooldown...
+        yield return new WaitForSeconds(CooldownTime);
+        // ...reset the cooldown
+        onCooldown = false;
     }
 
 
@@ -29,10 +42,16 @@ public class CurrentImpulse : MonoBehaviour {
     {
         // Create circle collider that interacts with all objects near the impulse
         Collider[] ImpulseCollisions = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, 0), ImpulseRadius, ForceLayer);
+<<<<<<< HEAD
         
          for (int i = 0; i < ImpulseCollisions.Length; i++)
+=======
+
+        for (int i = 0; i < ImpulseCollisions.Length; i++)
+>>>>>>> origin/dankbranch
         {
 
+            // Janek doing weird "abstract" shit
             MonoBehaviour[] list = ImpulseCollisions[i].gameObject.GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour mb in list)
             {
@@ -50,7 +69,7 @@ public class CurrentImpulse : MonoBehaviour {
                 ImpulseCollisions[i].GetComponent<Projectile>().DisableProjectile();
             }
             // Check if the object has a rigidbody attached to it - needs force applied to it
-            if(ImpulseCollisions[i].GetComponent<Rigidbody>())
+            if (ImpulseCollisions[i].GetComponent<Rigidbody>())
             {
                 // Direction that the force should be applied in = position of force - position of the object
                 Vector2 ForceVector = (ImpulseCollisions[i].transform.position - transform.position);
