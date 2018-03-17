@@ -15,28 +15,35 @@ public class Turret : MonoBehaviour {
     public int MaxInstantiatedProjectiles = 8;
 
     public List<GameObject> InstantiatedProjectiles = new List<GameObject>();
+    private bool knockedOut = false;
     private float fireTimer = 0.0f;
-    private bool TurretDisabled = true;
+    private float knockOutTimer = 0.0f;
 
     // Use this for initialization
     void Start () {
-        TurretDisabled = false;
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
         // Check if our turrets has been knocked out - otherwise, detect targets
-        if (!TurretDisabled)
+        if (!knockedOut)
         {
             DetectTarget();
         }
+        else
+        {
+            if (knockOutTimer > 0)
+            {
+                // Reset knock out with timer
+                knockOutTimer -= Time.deltaTime;
+            }
+            else
+            {
+                knockedOut = false;
+            }
+        }
 	}
-
-    public void ToggleTurretActive()
-    {
-        TurretDisabled = !TurretDisabled;
-    }
-
 
     void DetectTarget()
     {
@@ -122,5 +129,13 @@ public class Turret : MonoBehaviour {
         // Set the transform to be that of the turret
         InstantiatedProjectiles[furthestDistanceObjID].transform.position = ProjectileSpawn.position;
         InstantiatedProjectiles[furthestDistanceObjID].transform.rotation = ProjectileSpawn.rotation;
+    }
+
+    public void ToggleKnockOut()
+    {
+        if(!knockedOut)
+        {
+            knockedOut = true;
+        }
     }
 }

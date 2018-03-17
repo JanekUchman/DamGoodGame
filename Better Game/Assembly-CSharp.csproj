@@ -170,7 +170,6 @@
      <Compile Include="Assets\Scripts\Functions.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\Turret.cs" />
-     <Compile Include="Assets\SpawnManager.cs" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.cginc" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
      <None Include="Assets\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
@@ -204,7 +203,7 @@
  <HintPath>C:/Program Files/Unity2017.1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>M:/AGDSjam/DamGoodGame/Better Game/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ <HintPath>M:/GitHub/DamGoodGame/Better Game/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
