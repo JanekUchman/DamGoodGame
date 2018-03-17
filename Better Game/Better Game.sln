@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better Game", "Assembly-CSharp.csproj", "{E9A5442A-D1AD-7352-73C3-E195766CCAEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Better Game", "Assembly-CSharp-Editor.csproj", "{820A4018-6667-1A13-6D5F-F33A56BEBFD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9A5442A-D1AD-7352-73C3-E195766CCAEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A5442A-D1AD-7352-73C3-E195766CCAEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A5442A-D1AD-7352-73C3-E195766CCAEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A5442A-D1AD-7352-73C3-E195766CCAEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{820A4018-6667-1A13-6D5F-F33A56BEBFD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{820A4018-6667-1A13-6D5F-F33A56BEBFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{820A4018-6667-1A13-6D5F-F33A56BEBFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{820A4018-6667-1A13-6D5F-F33A56BEBFD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
