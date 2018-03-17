@@ -32,17 +32,6 @@ public class CurrentImpulse : MonoBehaviour {
         
          for (int i = 0; i < ImpulseCollisions.Length; i++)
         {
-            //List<IKnockable> interfaceList;
-            //Functions.GetInterfaces<IKnockable>(out interfaceList, ImpulseCollisions[i].gameObject);
-            //foreach (var knockable in interfaceList)
-            //{
-            //    knockable.RippleHit();
-            //    Debug.Log("Ripple hit");
-
-
-            //}
-
-
 
             MonoBehaviour[] list = ImpulseCollisions[i].gameObject.GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour mb in list)

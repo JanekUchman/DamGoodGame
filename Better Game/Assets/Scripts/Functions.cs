@@ -5,7 +5,7 @@ using UnityEngine;
 public static class Functions {
 
     public static float HitTimer = 1f;
-
+    public static int CollisionLayer = LayerMask.NameToLayer("Obstacle");
     public static void GetInterfaces<T>(out List<T> resultList, GameObject objectToSearch) where T : class
     {
         MonoBehaviour[] list = objectToSearch.GetComponents<MonoBehaviour>();

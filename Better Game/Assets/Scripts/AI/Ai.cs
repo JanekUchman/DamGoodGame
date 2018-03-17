@@ -4,6 +4,14 @@ using UnityEngine;
 
 public abstract class Ai : MonoBehaviour {
     protected State state;
+
+    [SerializeField]
+    protected float rockStunTimer = 3.5f;
+
+    [SerializeField]
+    protected float stunCooldownTimer =2.0f;
+
+    protected bool canHitIntoRock = true;
     protected enum State
     {
         Moving,
@@ -14,5 +22,6 @@ public abstract class Ai : MonoBehaviour {
 
 
     protected abstract void Moving();
+    public abstract void SetStateStunned(float stunTimer);
 
 }
