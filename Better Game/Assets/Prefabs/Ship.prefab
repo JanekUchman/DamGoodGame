@@ -27,11 +27,11 @@ GameObject:
   - component: {fileID: 114546314353759948}
   - component: {fileID: 114075477378784652}
   - component: {fileID: 114193767296804350}
-  - component: {fileID: 65228670425073556}
   - component: {fileID: 114002785941040836}
+  - component: {fileID: 136617820414676556}
   m_Layer: 8
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,13 +42,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585974724508148}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: 0, w: 0}
   m_LocalPosition: {x: 2.94, y: 2.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 90}
 --- !u!23 &23096929873350154
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -96,25 +96,13 @@ Rigidbody:
   m_GameObject: {fileID: 1585974724508148}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 1
---- !u!65 &65228670425073556
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1585974724508148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.79, y: 2.81, z: 1.0000002}
-  m_Center: {x: 0.00000005960466, y: 0, z: -0.00000008940697}
 --- !u!114 &114002785941040836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,8 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b681fa1bb9ba944aee04167a5b6fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockStunTimer: 2
+  rockStunTimer: 3.5
   stunCooldownTimer: 2
+  health: 99998
+  reachedEnd: 1
 --- !u!114 &114075477378784652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,10 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  repathRate: 0.95
+  repathRate: 0.4
   canSearch: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 3
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -204,12 +194,25 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 12
+  slowdownDistance: 0
+  pickNextWaypointDist: 2.38
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
+--- !u!136 &136617820414676556
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585974724508148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.72
+  m_Height: 2.68
+  m_Direction: 1
+  m_Center: {x: 0.00000005960466, y: 0, z: -0.00000008940697}
 --- !u!136 &136950592005162774
 CapsuleCollider:
   m_ObjectHideFlags: 1

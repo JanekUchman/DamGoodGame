@@ -11,6 +11,9 @@ public abstract class Ai : MonoBehaviour {
     [SerializeField]
     protected float stunCooldownTimer =2.0f;
 
+    [SerializeField]
+    protected int health = 10;
+
     protected bool canHitIntoRock = true;
     protected enum State
     {

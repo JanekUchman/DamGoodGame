@@ -6,11 +6,14 @@ public class Projectile : MonoBehaviour {
 
     public float ProjectileSpeed = 20.0f;
 
+
+    private Collider collider;
     private SpriteRenderer spriteRenderer;
     private bool projectileActive = true;
 
 	// Use this for initialization
 	void Start () {
+        collider = GetComponent<Collider>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 	
@@ -21,26 +24,35 @@ public class Projectile : MonoBehaviour {
 
     public void DisableProjectile()
     {
-        if (projectileActive == true)
-        {
-            // Disable sprite renderer
-            spriteRenderer.enabled = false;
-            projectileActive = false;
-        }
+        gameObject.SetActive(false);
     }
 
     public void EnableProjectile()
     {
-        if (projectileActive == false)
-        {
-            // Enable sprite renderer
-            spriteRenderer.enabled = true;
-            projectileActive = true;
-        }
+        gameObject.SetActive(true);
+
+        StartCoroutine(ProjectileTimeout());
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private IEnumerator ProjectileTimeout()
+    {
+        yield return new WaitForSeconds(1.5f);
+        DisableProjectile();
+
+    }
+
+    void OnTriggerEnter(Collider other)
     {
 
+        if (other.GetComponent<ShipAi>())
+        {
+            other.GetComponent<ShipAi>().TakeDamage(1);
+
+            StopCoroutine(ProjectileTimeout());
+            DisableProjectile();
+
+        }
+
+        
     }
 }

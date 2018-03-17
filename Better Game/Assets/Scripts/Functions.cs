@@ -19,4 +19,15 @@ public static class Functions {
             }
         }
     }
+
+    public static void ToggleObject(bool toggle, GameObject objectToggle)
+    {
+        MonoBehaviour[] list = objectToggle.GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour mb in list)
+        {
+
+            mb.enabled = toggle;
+
+        }
+    }
 }

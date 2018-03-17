@@ -14,6 +14,9 @@ public class Turret : MonoBehaviour {
     public Transform ProjectileSpawn;
     public int MaxInstantiatedProjectiles = 8;
 
+
+    [SerializeField]
+    private GameObject beaver;
     public List<GameObject> InstantiatedProjectiles = new List<GameObject>();
     private bool knockedOut = false;
     private float fireTimer = 0.0f;
@@ -26,6 +29,8 @@ public class Turret : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        transform.position = new Vector3( beaver.transform.position.x, beaver.transform.position.y, -1);
+        fireTimer += Time.deltaTime;
         // Check if our turrets has been knocked out - otherwise, detect targets
         if (!knockedOut)
         {
@@ -85,7 +90,7 @@ public class Turret : MonoBehaviour {
                         if (Mathf.Abs(compAngle) < MinFiringAngle)
                         {
                             // Increment firing timer
-                            fireTimer += Time.deltaTime;
+                            
                             if (fireTimer > FiringRate)
                             {
                                 // Fire projectile - if there are still projectiles we need to instantiate...
@@ -129,13 +134,13 @@ public class Turret : MonoBehaviour {
         // Set the transform to be that of the turret
         InstantiatedProjectiles[furthestDistanceObjID].transform.position = ProjectileSpawn.position;
         InstantiatedProjectiles[furthestDistanceObjID].transform.rotation = ProjectileSpawn.rotation;
+        InstantiatedProjectiles[furthestDistanceObjID].GetComponent<Projectile>().EnableProjectile();
     }
 
-    public void ToggleKnockOut()
+    public void ToggleKnockOut(bool toggle)
     {
-        if(!knockedOut)
-        {
-            knockedOut = true;
-        }
+
+        knockedOut = toggle;
+        
     }
 }

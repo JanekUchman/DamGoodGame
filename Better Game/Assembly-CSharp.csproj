@@ -165,10 +165,13 @@
      <Compile Include="Assets\Scripts\AI\IKnockable.cs" />
      <Compile Include="Assets\Scripts\AI\ShipAi.cs" />
      <Compile Include="Assets\Scripts\Beaverai.cs" />
+     <Compile Include="Assets\Scripts\BeaverAway.cs" />
      <Compile Include="Assets\Scripts\Controllers\AStarObject.cs" />
      <Compile Include="Assets\Scripts\CurrentImpulse.cs" />
+     <Compile Include="Assets\Scripts\EndGoal.cs" />
      <Compile Include="Assets\Scripts\Functions.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Scripts\SpawnManager.cs" />
      <Compile Include="Assets\Scripts\Turret.cs" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.cginc" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />

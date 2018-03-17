@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Spawn Point
+  - Ship
+  - Dock
   layers:
   - Default
   - TransparentFX

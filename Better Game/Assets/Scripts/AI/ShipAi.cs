@@ -8,23 +8,24 @@ public class ShipAi : Ai, IKnockable
     private Rigidbody rigidBody;
     private Pathfinding.AIPath seeker;
 
+    public bool reachedEnd = false;
+
     
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
         seeker = GetComponent<Pathfinding.AIPath>();
+        health = 3;
+        GetComponent<Pathfinding.AIDestinationSetter>().target = GameObject.FindGameObjectWithTag("Dock").transform;
 	}
 
-    void ToggleShip(bool toggle)
+
+    void OnEnable()
     {
-        MonoBehaviour[] list = gameObject.GetComponents<MonoBehaviour>();
-        foreach (MonoBehaviour mb in list)
-        {
-
-            mb.enabled = toggle;
-
-        }
+        health = 3;
+        reachedEnd = false;
     }
+    
 	
 	// Update is called once per frame
 	void Update () {
@@ -88,7 +89,9 @@ public class ShipAi : Ai, IKnockable
         {
             rigidBody.velocity = Vector3.zero;
             SetStateStunned(rockStunTimer);
-            StartCoroutine(HitIntoRock(rockStunTimer));
+            TakeDamage(2);
+            if (gameObject.activeInHierarchy)
+                StartCoroutine(HitIntoRock(rockStunTimer));
         }
     }
 
@@ -99,5 +102,33 @@ public class ShipAi : Ai, IKnockable
         yield return new WaitForSeconds(timer + stunCooldownTimer);
         canHitIntoRock = true;
 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+            Death();
+
+    }
+
+    private void Death()
+    {
+        gameObject.SetActive(false);
+        health = 3;
+    }
+
+    public void ReachedEnd()
+    {
+
+        reachedEnd = true;
+        health = 100000;
+        StartCoroutine(DisableShip());
+    }
+
+    private IEnumerator DisableShip()
+    {
+        yield return new WaitForSeconds(1.0f);
+        gameObject.SetActive(false);
     }
 }
