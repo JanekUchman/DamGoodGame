@@ -1,30 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipAi : Ai, IKnockable
 {
 
     private Rigidbody rigidBody;
     private Pathfinding.AIPath seeker;
-
+    private SpriteRenderer explosionSprite;
     public bool reachedEnd = false;
 
     
 	// Use this for initialization
 	void Start () {
+        reachedEnd = false;
         rigidBody = GetComponent<Rigidbody>();
         seeker = GetComponent<Pathfinding.AIPath>();
+        explosionSprite = transform.FindChild("Explosion").gameObject.GetComponent<SpriteRenderer>();
+        explosionSprite.enabled = false;
         health = 3;
-        GetComponent<Pathfinding.AIDestinationSetter>().target = GameObject.FindGameObjectWithTag("Dock").transform;
+        SetTargets();
 	}
-
 
     void OnEnable()
     {
-        health = 3;
         reachedEnd = false;
+        rigidBody = GetComponent<Rigidbody>();
+        seeker = GetComponent<Pathfinding.AIPath>();
+        explosionSprite = transform.FindChild("Explosion").gameObject.GetComponent<SpriteRenderer>();
+        explosionSprite.enabled = false;
+        health = 3;
+        SetTargets();
     }
+
+    void SetTargets()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Dock");
+        int DockNr = Random.Range(0, targets.Length);
+        GetComponent<Pathfinding.AIDestinationSetter>().target = targets[DockNr].transform;
+    }
+
+
     
 	
 	// Update is called once per frame
@@ -108,21 +125,32 @@ public class ShipAi : Ai, IKnockable
     {
         health -= damage;
         if (health <= 0)
-            Death();
+            StartCoroutine(Death());
 
     }
 
-    private void Death()
+    private IEnumerator Death()
     {
-        gameObject.SetActive(false);
+        
+        explosionSprite.enabled = true;
+        transform.FindChild("Explosion").gameObject.GetComponent<AnimationEffects>().ActivateAnimator();
+        seeker.enabled = false;
+        yield return new WaitForSeconds(0.3f);
+        seeker.enabled = true;
+        explosionSprite.enabled = true;
         health = 3;
+
+        transform.FindChild("Ship").gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void ReachedEnd()
     {
-
+        Debug.Log("hit");
         reachedEnd = true;
         health = 100000;
+        GameController.instance.score++;
+        GameObject.FindGameObjectWithTag("Score").GetComponent<Text>().text = "x" + GameController.instance.score;
         StartCoroutine(DisableShip());
     }
 

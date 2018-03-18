@@ -6,7 +6,7 @@ public class CurrentImpulse : MonoBehaviour {
 
     public float ImpulseRadius = 10.0f;
     public float ImpulseForce = 10.0f;
-    public float ResetTime = 3.0f;
+    public GameObject Riple;
     public LayerMask ForceLayer;
     private bool onCooldown = false;
     public float CooldownTime = 2.0f;
@@ -25,6 +25,8 @@ public class CurrentImpulse : MonoBehaviour {
             // Apply new impulse
             TriggerImpulse();
             StartCoroutine(SetCooldown());
+            Riple.transform.position = new Vector3(transform.position.x, transform.position.y, Riple.transform.position.z);
+            Riple.GetComponent<AnimationEffects>().ActivateAnimator();
         }
     }
 

@@ -7,13 +7,21 @@ public class Beaverai : Ai, IKnockable
     private Rigidbody rigidBody;
     [SerializeField]
     private Turret turret;
+    [SerializeField]
+    Transform BeaverAway;
+    [SerializeField]
+    Transform BeaverRallyPoint;
     private Pathfinding.AIPath seeker;
+
+    private Animator animator;
     // Use this for initialization
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         seeker = GetComponent<Pathfinding.AIPath>();
         StartCoroutine(UpdateTargets());
+
+        animator = GetComponentInChildren<Animator>();
 
     }
 
@@ -34,8 +42,13 @@ public class Beaverai : Ai, IKnockable
     // Update is called once per frame
     void Update()
     {
+        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, 0.1f), 0.03f);
 
-    }
+        if (!seeker.reachedEndOfPath && state != State.Stunned)
+            animator.SetBool("Walking", true);
+        else
+            animator.SetBool("Walking", false);
+    } // marcs the best
 
     public void RippleHit()
     {
@@ -61,12 +74,13 @@ public class Beaverai : Ai, IKnockable
         yield return new WaitForSeconds(stunLength);
         state = State.Moving;
         seeker.enabled = true;
+        //turret.enabled = true;
         turret.ToggleKnockOut(false);
     }
 
     public void Stunned()
     {
-
+        
     }
 
     public void UnderAttack()
@@ -99,6 +113,7 @@ public class Beaverai : Ai, IKnockable
     {
         while (true)
         {
+            bool foundShip = false;
             Debug.Log("detected ships");
             yield return new WaitForSeconds(0.5f);
             GameObject[] Ships = GameObject.FindGameObjectsWithTag("Ship");
@@ -111,12 +126,21 @@ public class Beaverai : Ai, IKnockable
                     
                     if (Ships[i].activeInHierarchy == true && !Ships[i].GetComponent<ShipAi>().reachedEnd)
                     {
-                        if (Vector3.Distance(transform.position, Ships[i].transform.position) < minDistance)
+                        if (Ships[i].transform.position.x > BeaverAway.position.x)
                         {
-                            GetComponent<Pathfinding.AIDestinationSetter>().target = Ships[i].transform;
+                            if (Vector3.Distance(transform.position, Ships[i].transform.position) < minDistance)
+                            {
+                                GetComponent<Pathfinding.AIDestinationSetter>().target = Ships[i].transform;
+                                foundShip = true;
+                                break;
+                            }
                         }
                     }
                 }
+            }
+            if(!foundShip)
+            {
+                GetComponent<Pathfinding.AIDestinationSetter>().target = BeaverRallyPoint;
             }
         }
     }

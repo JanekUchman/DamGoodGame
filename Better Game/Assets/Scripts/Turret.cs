@@ -14,7 +14,8 @@ public class Turret : MonoBehaviour {
     public Transform ProjectileSpawn;
     public int MaxInstantiatedProjectiles = 8;
 
-
+    [SerializeField]
+    private GameObject turretpoint;
     [SerializeField]
     private GameObject beaver;
     public List<GameObject> InstantiatedProjectiles = new List<GameObject>();
@@ -29,7 +30,7 @@ public class Turret : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector3( beaver.transform.position.x, beaver.transform.position.y, -1);
+        transform.position = turretpoint.transform.position;
         fireTimer += Time.deltaTime;
         // Check if our turrets has been knocked out - otherwise, detect targets
         if (!knockedOut)
@@ -141,6 +142,9 @@ public class Turret : MonoBehaviour {
     {
 
         knockedOut = toggle;
-        
+        if (knockedOut)
+        {
+            knockOutTimer = KnockOutTime;
+        }
     }
 }

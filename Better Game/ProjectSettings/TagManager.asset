@@ -7,6 +7,7 @@ TagManager:
   - Spawn Point
   - Ship
   - Dock
+  - Score
   layers:
   - Default
   - TransparentFX

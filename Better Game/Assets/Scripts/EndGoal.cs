@@ -17,7 +17,7 @@ public class EndGoal : MonoBehaviour {
     void OnTriggerEnter(Collider coll)
     {
         Debug.Log("Test");
-        if (coll.GetComponent<ShipAi>())
+        if (coll.GetComponent<ShipAi>() && !coll.GetComponent<ShipAi>().reachedEnd)
             coll.GetComponent<ShipAi>().ReachedEnd();
     }
 }

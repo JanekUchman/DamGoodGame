@@ -81,11 +81,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd349db8321ac0b478405f4d03ade5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DetectionDistance: 5.98
-  RotationRate: 130
-  FiringRate: 2
+  DetectionDistance: 3
+  RotationRate: 100
+  FiringRate: 1
   MinFiringAngle: 10
-  KnockOutTime: 2
+  KnockOutTime: 8
   DetectionLayer:
     serializedVersion: 2
     m_Bits: 256

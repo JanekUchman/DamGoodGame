@@ -1,0 +1,305 @@
+fileFormatVersion: 2
+guid: dc88470bef8c2564d89cb6fec7010b3d
+timeCreated: 1521374319
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone
+    100004: Bone.001
+    100006: Bone.002
+    100008: Bone.003
+    100010: Bone.004
+    100012: Bone.005
+    100014: Bone.006
+    100016: Bone.007
+    100018: Bone.008
+    100020: Bone.008_end
+    100022: Bone.009
+    100024: Bone.010
+    100026: Bone.011
+    100028: Bone.012
+    100030: Bone.012_end
+    100032: Bone.013
+    100034: Bone.014
+    100036: Bone.015
+    100038: Bone.016
+    100040: Bone.016_end
+    100042: Bone.017
+    100044: Bone.017_end
+    100046: Bone.018
+    100048: Bone.019
+    100050: Bone.020
+    100052: Bone.021
+    100054: Bone.021_end
+    100056: Bone.022
+    100058: Bone.023
+    100060: Bone.024
+    100062: Bone.025
+    100064: Bone.025_end
+    100066: Bone.026
+    100068: //RootNode
+    100070: Empty
+    100072: Plane.000
+    100074: Plane.001
+    100076: Plane.002
+    100078: Armature.001
+    100080: Bone 1
+    100082: Bone.001 1
+    100084: Bone.002 1
+    100086: Bone.003 1
+    100088: Bone.004 1
+    100090: Bone.005 1
+    100092: Bone.006 1
+    100094: Bone.007 1
+    100096: Bone.008 1
+    100098: Bone.008_end 1
+    100100: Bone.008_end_end
+    100102: Bone.008_end_end 1
+    100104: Bone.009 1
+    100106: Bone.010 1
+    100108: Bone.011 1
+    100110: Bone.012 1
+    100112: Bone.012_end 1
+    100114: Bone.012_end_end
+    100116: Bone.012_end_end 1
+    100118: Bone.013 1
+    100120: Bone.014 1
+    100122: Bone.015 1
+    100124: Bone.016 1
+    100126: Bone.016_end 1
+    100128: Bone.016_end_end
+    100130: Bone.016_end_end 1
+    100132: Bone.017 1
+    100134: Bone.017_end 1
+    100136: Bone.017_end_end
+    100138: Bone.017_end_end 1
+    100140: Bone.018 1
+    100142: Bone.019 1
+    100144: Bone.020 1
+    100146: Bone.021 1
+    100148: Bone.021_end 1
+    100150: Bone.021_end_end
+    100152: Bone.021_end_end 1
+    100154: Bone.022 1
+    100156: Bone.023 1
+    100158: Bone.024 1
+    100160: Bone.025 1
+    100162: Bone.025_end 1
+    100164: Bone.025_end_end
+    100166: Bone.025_end_end 1
+    100168: Bone.026 1
+    100170: Plane.003
+    100172: The Beaver
+    400000: Armature
+    400002: Bone
+    400004: Bone.001
+    400006: Bone.002
+    400008: Bone.003
+    400010: Bone.004
+    400012: Bone.005
+    400014: Bone.006
+    400016: Bone.007
+    400018: Bone.008
+    400020: Bone.008_end
+    400022: Bone.009
+    400024: Bone.010
+    400026: Bone.011
+    400028: Bone.012
+    400030: Bone.012_end
+    400032: Bone.013
+    400034: Bone.014
+    400036: Bone.015
+    400038: Bone.016
+    400040: Bone.016_end
+    400042: Bone.017
+    400044: Bone.017_end
+    400046: Bone.018
+    400048: Bone.019
+    400050: Bone.020
+    400052: Bone.021
+    400054: Bone.021_end
+    400056: Bone.022
+    400058: Bone.023
+    400060: Bone.024
+    400062: Bone.025
+    400064: Bone.025_end
+    400066: Bone.026
+    400068: //RootNode
+    400070: Empty
+    400072: Plane.000
+    400074: Plane.001
+    400076: Plane.002
+    400078: Armature.001
+    400080: Bone 1
+    400082: Bone.001 1
+    400084: Bone.002 1
+    400086: Bone.003 1
+    400088: Bone.004 1
+    400090: Bone.005 1
+    400092: Bone.006 1
+    400094: Bone.007 1
+    400096: Bone.008 1
+    400098: Bone.008_end 1
+    400100: Bone.008_end_end
+    400102: Bone.008_end_end 1
+    400104: Bone.009 1
+    400106: Bone.010 1
+    400108: Bone.011 1
+    400110: Bone.012 1
+    400112: Bone.012_end 1
+    400114: Bone.012_end_end
+    400116: Bone.012_end_end 1
+    400118: Bone.013 1
+    400120: Bone.014 1
+    400122: Bone.015 1
+    400124: Bone.016 1
+    400126: Bone.016_end 1
+    400128: Bone.016_end_end
+    400130: Bone.016_end_end 1
+    400132: Bone.017 1
+    400134: Bone.017_end 1
+    400136: Bone.017_end_end
+    400138: Bone.017_end_end 1
+    400140: Bone.018 1
+    400142: Bone.019 1
+    400144: Bone.020 1
+    400146: Bone.021 1
+    400148: Bone.021_end 1
+    400150: Bone.021_end_end
+    400152: Bone.021_end_end 1
+    400154: Bone.022 1
+    400156: Bone.023 1
+    400158: Bone.024 1
+    400160: Bone.025 1
+    400162: Bone.025_end 1
+    400164: Bone.025_end_end
+    400166: Bone.025_end_end 1
+    400168: Bone.026 1
+    400170: Plane.003
+    400172: The Beaver
+    4300000: Plane.002
+    4300002: Plane.000
+    4300004: Plane.001
+    4300006: Plane.003
+    4300008: The Beaver
+    7400000: Armature|ArmatureAction
+    7400002: Armature|EmptyAction
+    7400004: Armature.001|Armature.001|Armature|ArmatureAction|Armature|ArmatureAction
+    7400006: Armature.001|Armature.001|Armature|EmptyAction|Armature|EmptyAction
+    7400008: Armature.001|Armature|Armature|ArmatureAction|Armature|ArmatureAction
+    7400010: Armature.001|Armature|Armature|EmptyAction|Armature|EmptyAction
+    7400012: Armature|Armature.001|Armature|ArmatureAction|Armature|ArmatureAction
+    7400014: Armature|Armature.001|Armature|EmptyAction|Armature|EmptyAction
+    7400016: Armature|Armature|Armature|ArmatureAction|Armature|ArmatureAction
+    7400018: Armature|Armature|Armature|EmptyAction|Armature|EmptyAction
+    9500000: //RootNode
+    13700000: Plane.000
+    13700002: Plane.001
+    13700004: Plane.002
+    13700006: Plane.003
+    13700008: The Beaver
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature.001|Armature.001|Armature|ArmatureAction|Armature|ArmatureAction
+      takeName: Armature.001|Armature.001|Armature|ArmatureAction|Armature|ArmatureAction
+      firstFrame: 0
+      lastFrame: 28
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

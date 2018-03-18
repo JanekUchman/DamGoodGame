@@ -6,7 +6,7 @@ public abstract class Ai : MonoBehaviour {
     protected State state;
 
     [SerializeField]
-    protected float rockStunTimer = 3.5f;
+    protected float rockStunTimer = 6.0f;
 
     [SerializeField]
     protected float stunCooldownTimer =2.0f;
