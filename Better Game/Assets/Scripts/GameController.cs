@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
@@ -26,7 +25,7 @@ public class GameController : MonoBehaviour {
 
     private IEnumerator GameTimer()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(60);
         splash.SetActive(true);
         splashText.SetActive(true);
         splashText.GetComponent<Text>().text = "You saved a total of " + score + " squirrels on jet skis";
